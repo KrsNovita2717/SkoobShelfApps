@@ -102,9 +102,13 @@
             </section>
         </aside>
 
-        <!-- <div class="editBooks">
-            <div class="form-wrapper" id="input">
-                <form action="edit" class="addBooks">
+        <div class="editModal fade">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Edit Buku</h2>
+                    <button type="button" class="close" data-dismiss="editModal">&times;</button>
+                </div>
+                <form action="" class="edit" id="edit">
                     <div class="form-item">
                         <label for="book-title">Judul</label>
                         <input type="text" name="book-title" id="book-title" value="bookTitle"
@@ -121,12 +125,29 @@
                         <label for="checkbox">Sudah selesai dibaca?</label>
                     </div>
                     <div class="submit-btn">
-                        <button type="submit">Tambahkan Buku</button>
+                        <button type="submit" value="Edit" name="Edit">Edit Buku</button>
                     </div>
                 </form>
-            </div> -->
-
+            </div>
         </div>
+
+        <div class="deleteModal">
+            <div class="container">
+                <div class="section-header">
+                    <h4 class="section-title">Hapus Buku</h4>
+                    <button type="button" class="close" data-dismiss="deleteModal">&times;</button>
+                </div>
+                <form method="post">
+                        Yakin ingin menghapus
+                        <br> <br>
+                        <input type="hidden" name="id" value="">
+                        <div class="submit-btn">
+                            <button type="submit" value="Delete" name="Delete">Hapus Buku</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
     </main>
 
     <footer>
