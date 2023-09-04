@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SkoobShelf Apps</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <section class="header-title">
+            <h1>SkoobShelf</h1>
+            <h3>Discover, Organize, and Explore Your World with Your Digital Bookshelf Companion</h3>
+        </section>
+
+        <section class="header-image">
+            <img src="images/header-image.png" alt="Rak Buku" title="Rak Buku">
+        </section>
+
+    </header>
+
+    <main>
+        <article id="content">
+            <section class="container" id="input-menu">
+                <div class="section-title">
+                    <h2>Masukan Data Buku</h2>
+                </div>
+                <div class="section-content">
+                    <div class="form-wrapper" id="input">
+                        <form action="submit" class="addBooks">
+                            <div class="form-item">
+                                <label for="book-title">Judul</label>
+                                <input type="text" name="book-title" id="book-title" placeholder="Masukan judul buku"
+                                    required>
+                                <label for="book-author">Penulis</label>
+                                <input type="text" name="book-author" id="book-author"
+                                    placeholder="Masukan nama penulis" required>
+                                <label for="book-year">Tahun</label>
+                                <input type="text" name="book-year" id="book-year" placeholder="Masukan tahun terbit"
+                                    required>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" name="isComplete" id="isComplete">
+                                <label for="checkbox">Sudah selesai dibaca?</label>
+                            </div>
+                            <div class="submit-btn">
+                                <button type="submit">Tambahkan Buku</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="images/form-image.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <section class="container" id="onreadingBooks">
+                <div class="section-title">
+                    <h2>Daftar Buku yang Sedang Dibaca</h2>
+                </div>
+                <div class="section-content">
+                    <div class="booklists" id="onreading-books">
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="container" id="alreadyReading">
+                <div class="section-title">
+                    <h2>Daftar Buku yang Sudah Dibaca</h2>
+                </div>
+                <div class="section-content">
+                    <div class="booklists" id="already-read">
+                        
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <aside id="side-content">
+            <section class="container" id="allBooks">
+                <div class="section-title">
+                    <h2>Daftar Buku</h2>
+                </div>
+                <div class="section-content">
+                    <div class="searh-bar">
+                        <form action="submit" name="searchBooks" id="searchBooks">
+                            <input type="text" name="keySearch" id="keySearch" placeholder="Masukan Judul Buku">
+                            <button type="submit"><i class="ri-search-line"></i></button>
+                        </form>
+                    </div>
+                    <div class="booklists" id="all-books">
+                        
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <footer>
+        <h3>Krs_novita &copy; Copyright, 2023</h3>
+        <section class="social-media">
+            <a href="http://"><i class="ri-twitter-x-fill"></i></a>
+            <a href="http://"><i class="ri-instagram-fill"></i></a>
+            <a href="http://"><i class="ri-github-fill"></i></a>
+        </section>
+
+    </footer>
+</body>
+
+</html>
