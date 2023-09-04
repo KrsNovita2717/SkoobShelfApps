@@ -32,17 +32,17 @@
                     <h2>Masukan Data Buku</h2>
                 </div>
                 <div class="section-content">
-                    <div class="form-wrapper" id="input">
-                        <form action="submit" class="addBooks">
+                    <div class="form-wrapper">
+                        <form action="#" class="addBooks" id="addBooks">
                             <div class="form-item">
-                                <label for="book-title">Judul</label>
-                                <input type="text" name="book-title" id="book-title" placeholder="Masukan judul buku"
+                                <label for="input-title">Judul</label>
+                                <input type="text" name="input-title" id="input-title" placeholder="Masukan judul buku"
                                     required>
-                                <label for="book-author">Penulis</label>
-                                <input type="text" name="book-author" id="book-author"
+                                <label for="input-author">Penulis</label>
+                                <input type="text" name="input-author" id="input-author"
                                     placeholder="Masukan nama penulis" required>
-                                <label for="book-year">Tahun</label>
-                                <input type="text" name="book-year" id="book-year" placeholder="Masukan tahun terbit"
+                                <label for="input-year">Tahun</label>
+                                <input type="text" name="input-year" id="input-year" placeholder="Masukan tahun terbit"
                                     required>
                             </div>
                             <div class="checkbox">
@@ -60,49 +60,39 @@
                 </div>
             </section>
 
-            <section class="container" id="onreadingBooks">
+            <section class="container" id="searching-bar">
+                <div class="section-title">
+                    <h2>Cari Buku</h2>
+                </div>
+                <div class="section-content">
+                    <form action="" name="searchBooks" id="searchBooks">
+                        <input type="text" name="keySearch" id="keySearch" placeholder="Masukan Judul Buku">
+                    </form>
+                </div>
+            </section>
+
+            <section class="container">
                 <div class="section-title">
                     <h2>Daftar Buku yang Sedang Dibaca</h2>
                 </div>
                 <div class="section-content">
-                    <div class="booklists" id="onreading-books">
-
-                    </div>
+                    <div class="booklists" id="readingBooks">
                 </div>
             </section>
 
-            <section class="container" id="alreadyReading">
+            <section class="container">
                 <div class="section-title">
                     <h2>Daftar Buku yang Sudah Dibaca</h2>
                 </div>
                 <div class="section-content">
-                    <div class="booklists" id="already-read">
+                    <div class="booklists" id="finishedBooks">
                         
                     </div>
                 </div>
             </section>
         </article>
 
-        <aside id="side-content">
-            <section class="container" id="allBooks">
-                <div class="section-title">
-                    <h2>Daftar Buku</h2>
-                </div>
-                <div class="section-content">
-                    <div class="searh-bar">
-                        <form action="submit" name="searchBooks" id="searchBooks">
-                            <input type="text" name="keySearch" id="keySearch" placeholder="Masukan Judul Buku">
-                            <button type="submit"><i class="ri-search-line"></i></button>
-                        </form>
-                    </div>
-                    <div class="booklists" id="all-books">
-                        
-                    </div>
-                </div>
-            </section>
-        </aside>
-
-        <div class="editModal fade">
+        <div class="editModal">
             <div class="container">
                 <div class="section-title">
                     <h2>Edit Buku</h2>
@@ -111,17 +101,17 @@
                 <form action="" class="edit" id="edit">
                     <div class="form-item">
                         <label for="book-title">Judul</label>
-                        <input type="text" name="book-title" id="book-title" value="bookTitle"
+                        <input type="text" name="edit-title" id="edit-title" value="bookTitle"
                             required>
-                        <label for="book-author">Penulis</label>
-                        <input type="text" name="book-author" id="book-author"
+                        <label for="edit-author">Penulis</label>
+                        <input type="text" name="edit-author" id="edit-author"
                             placeholder="Masukan nama penulis" required>
-                        <label for="book-year">Tahun</label>
-                        <input type="text" name="book-year" id="book-year" placeholder="Masukan tahun terbit"
+                        <label for="edit-year">Tahun</label>
+                        <input type="text" name="edit-year" id="edit-year" placeholder="Masukan tahun terbit"
                             required>
                     </div>
                     <div class="checkbox">
-                        <input type="checkbox" name="isComplete" id="isComplete">
+                        <input type="checkbox" name="isComplete" id="edit-isComplete">
                         <label for="checkbox">Sudah selesai dibaca?</label>
                     </div>
                     <div class="submit-btn">
@@ -137,7 +127,7 @@
                     <h4 class="section-title">Hapus Buku</h4>
                     <button type="button" class="close" data-dismiss="deleteModal">&times;</button>
                 </div>
-                <form method="post">
+                <form class="delete" id="delete">
                         Yakin ingin menghapus
                         <br> <br>
                         <input type="hidden" name="id" value="">
@@ -160,5 +150,7 @@
 
     </footer>
 </body>
+
+<script src="js/script.js"></script>
 
 </html>
