@@ -59,7 +59,8 @@ main {
 }
 
 .container {
-  max-width: 100%;
+  width: 75%;
+  margin: 0 auto;
   background-color: #f1f1e8;
   padding: 10px;
   border-radius: 50px;
@@ -88,9 +89,8 @@ main {
   width: 100%;
 }
 
-label {
+.form-item label {
   width: 100%;
-  margin: 5px;
   font-size: 1.2em;
   color: #016a70;
 }
@@ -108,6 +108,7 @@ input {
   padding: 12px;
   background-color: hsl(79, 100%, 82%);
   border-color: #81b214;
+  margin-bottom: 10px;
 }
 
 input::placeholder {
@@ -134,11 +135,8 @@ input::placeholder {
   align-items: center;
 }
 
-#side-content {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
+#searching-bar{
+  padding: 10px;
 }
 
 #searchBooks {
@@ -212,7 +210,7 @@ i {
   .header-title,
   .container,
   footer {
-    font-size: 50%;
+    font-size: 80%;
   }
   .header-title {
     text-align: center;
@@ -223,14 +221,8 @@ i {
     margin-left: 0.1em;
   }
 
-  main {
-    display: inline;
-  }
-  .container {
-    margin: 20px;
-  }
-
-  img {
+  .header-image,
+  .image-wrapper {
     display: none;
   }
 }
