@@ -11,10 +11,10 @@ body {
   padding: 0;
 }
 
-h2{
-    color: #016a70;;
-    font-weight: lighter;
-    text-align: center;
+h2 {
+  color: #016a70;
+  font-weight: lighter;
+  text-align: center;
 }
 
 header {
@@ -45,16 +45,105 @@ header {
   margin-left: 3em;
 }
 
-main{
-    display: flex;
-    padding: 20px;
-    gap: 1.5em;
+main {
+  display: flex;
+  padding: 20px;
+  gap: 1.5em;
 }
 
-#content{
-    flex: 3;
+#content {
+  display: flex;
+  flex: 3;
+  flex-flow: column nowrap;
+  gap: 1em 2em;
 }
 
-#side-content{
-    flex: 2;
+.container {
+  max-width: 100%;
+  background-color: #f1f1e8;
+  padding: 10px;
+  border-radius: 50px;
+  border: dashed 5px #016a70;
+  color: #016a70;
+}
+
+#input-menu .section-content {
+  display: flex;
+}
+
+.form-wrapper {
+  display: flex;
+  flex: 5;
+  position: relative;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.addBooks {
+  margin: 1em;
+  width: 100%;
+}
+
+label{
+  width: 100%;
+  margin: 5px;
+  font-size: 1.2em;
+  color: #016a70;
+}
+.checkbox{
+  display: flex;
+}
+
+.checkbox input{
+  width: 10%;
+}
+
+input{
+  width: 100%;
+  border-radius: 10px;
+  padding: 12px;
+  background-color: hsl(79, 100%, 82%);
+  border-color: #81b214;
+}
+
+input::placeholder{
+  color: #016a70;
+  font-size: 1.2em;
+}
+
+.submit-btn button{
+  background-color: #016a70;
+  color: #f1f1e8;
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.image-wrapper{
+  flex: 2;
+}
+
+.image-wrapper img{
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#side-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+#searchBooks{
+  padding: 5px;
+  max-width: 90%;
+  display: flex;
+}
+
+#searchBooks button{
+  border-radius: 10px;
+  background-color: hsl(79, 100%, 82%);
+  border-color: #81b214;
 }
