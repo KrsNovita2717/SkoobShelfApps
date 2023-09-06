@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // const addBooksForm = document.getElementById("addBooks");
+  // const searchBooksForm = document.getElementById("searchBooks");
+  // const readingBooksList = document.getElementById("readingBooks");
+  // const finishedBooksList = document.getElementById("finishedBooks");
+
   const addBooksForm = document.getElementById("addBooks");
   const searchBooksForm = document.getElementById("searchBooks");
   const readingBooksList = document.getElementById("reading-books");
-  const completedBooksList = document.getElementById("completed-books");
+  const finishedBooksList = document.getElementById("completed-books");
 
   const books = [];
   const STORAGE_KEY = "BOOKSHELF";
@@ -10,18 +15,16 @@ document.addEventListener("DOMContentLoaded", function () {
   addBooksForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const id = +new Date();
     const title = document.getElementById("input-title").value;
     const author = document.getElementById("input-author").value;
     const year = document.getElementById("input-year").value;
-    const isCompleted = document.getElementById("isCompleted").checked;
+    const isComplete = document.getElementById("isComplete").checked;
 
     const book = {
-      id,
       title,
       author,
       year,
-      isCompleted,
+      isComplete,
     };
 
     books.push(book);
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function isStorageExist() {
-    if (typeof Storage === "undefined") {
+    if (typeof Storage === undefined) {
       alert("Browser kamu tidak mendukung local storage");
       return false;
     }
@@ -51,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateBookLists(filteredBooks = books) {
     readingBooksList.innerHTML = "";
-    completedBooksList.innerHTML = "";
+    finishedBooksList.innerHTML = "";
 
     filteredBooks.forEach(function (book, index) {
       const bookItem = document.createElement("div");
@@ -71,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       bookItem.appendChild(buttonsDiv);
 
-      if (book.isCompleted) {
-        completedBooksList.appendChild(bookItem);
+      if (book.isComplete) {
+        finishedBooksList.appendChild(bookItem);
       } else {
         readingBooksList.appendChild(bookItem);
       }
@@ -82,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function createEditButton(index) {
     const editButton = document.createElement("button");
     editButton.classList.add("edit-button");
-    editButton.innerHTML = `<i class="ri-edit-box-line" title="Edit Buku" ></i>`;
+    editButton.innerHTML = `<i class="ri-edit-box-line"></i>`;
     editButton.addEventListener("click", function () {
       editBook(index);
     });
@@ -92,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function createDeleteButton(index) {
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
-    deleteButton.innerHTML = `<i class="ri-delete-bin-6-line" title="Hapus Buku"></i>`;
+    deleteButton.innerHTML = `<i class="ri-delete-bin-6-line"></i>`;
     deleteButton.addEventListener("click", function () {
       deleteBook(index);
     });
@@ -102,11 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function createMoveButton(index) {
     const moveButton = document.createElement("button");
     moveButton.classList.add("move-button");
-    moveButton.innerHTML = books[index].isCompleted
-      ? `<i class="ri-book-open-line" title="Pindah ke Sedang Dibaca"></i>`
-      : `<i class="ri-checkbox-circle-line" title="Pindah ke Sudah Dibaca"></i>`;
+    moveButton.innerHTML = books[index].isComplete
+      ? `<i class="ri-book-open-line"></i>`
+      : `<i class="ri-checkbox-circle-line"></i>`;
     moveButton.addEventListener("click", function () {
-      readStatus(index);
+      toggleReadStatus(index);
     });
     return moveButton;
   }
@@ -114,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function editBook(index) {
     const book = books[index];
     const editModal = document.querySelector(".editModal");
-    const editForm = document.getElementById("editBooks");
+    const editForm = document.getElementById("edit");
     const editTitleInput = document.getElementById("edit-title");
     const editAuthorInput = document.getElementById("edit-author");
     const editYearInput = document.getElementById("edit-year");
@@ -139,21 +142,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function deleteBook(index) {
     const deleteModal = document.querySelector(".deleteModal");
-    const deleteForm = document.getElementById("deleteBooks");
-    const delCaption = document.querySelector(".delCaption");
-  
-    delCaption.textContent = `Yakin ingin menghapus buku "${books[index].title}"?`;
-  
+    const deleteForm = document.getElementById("delete");
+    const deleteConfirm = document.createElement("div");
+    deleteConfirm.innerHTML = `
+    <p>Yakin ingin menghapus buku "${books[index].title}"?</p>
+    <input type="hidden" name="id" value="">
+    <div class="submit-btn">
+        <button type="submit" value="Delete" name="Delete">Hapus Buku</button>
+    </div>
+    `;
+
     deleteModal.style.display = "block";
-  
+
     deleteForm.addEventListener("submit", function (event) {
       event.preventDefault();
-  
+
       books.splice(index, 1);
       saveData();
       updateBookLists();
       deleteModal.style.display = "none";
     });
+    deleteForm.innerHTML = "";
+    deleteForm.appendChild(deleteConfirm);
   }
 
   function loadData() {
@@ -164,13 +174,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function readStatus(index) {
-    books[index].isCompleted = !books[index].isCompleted;
+  function toggleReadStatus(index) {
+    books[index].isComplete = !books[index].isComplete;
     updateBookLists();
   }
 
   function saveData() {
-    if (isStorageExist()) {
+    if (isStorageExist) {
       const parsed = JSON.stringify(books);
       localStorage.setItem(STORAGE_KEY, parsed);
     }
@@ -183,6 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".deleteModal").style.display = "none";
     });
   });
-
+  
   loadData();
 });

@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+* {
+  font-family: "Jua", sans-serif;
+  font-weight: lighter;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #b4e4af;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #81b214;
+  display: flex;
+  border-radius: 0 0 50px 50px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  max-width: 70%;
+  display: inline;
+}
+
+h1 {
+  color: #f7e987;
+  font-size: 4em;
+  max-width: 100%;
+  text-align: center;
+}
+
+h2 {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.header-title h3 {
+  font-size: 2em;
+  color: #f1f1e8;
+  margin-left: 3.5em;
+}
+
+.header-image {
+  max-width: 30%;
+}
+
+.header-image img {
+  max-width: 80%;
+}
+
+main {
+  padding: 20px;
+  max-width: 100%;
+}
+
+.container {
+  width: 60%;
+  margin: 2em auto;
+  background-color: #f1f1e8;
+  padding: 2em;
+  border-radius: 50px;
+  border: dashed 5px #016a70;
+  color: #016a70;
+}
+
+.section-title {
+  text-align: center;
+}
+
+#form-container .section-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#form-container .form-wrapper {
+  flex: 1;
+}
+
+.form-image {
+  max-width: 30%;
+}
+
+.form-image img {
+  max-width: 100%;
+}
+
+#form-container .form-item {
+  margin-bottom: 15px;
+}
+
+.form-item label {
+  display: block;
+  margin-top: 10px;
+}
+input::placeholder {
+  color: #81b214;
+  font-size: 1.2em;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #81b214;
+  border-radius: 10px;
+  background-color: hsl(79, 100%, 82%);
+}
+
+.checkbox {
+  display: flex;
+}
+
+.checkbox input {
+  width: 2em;
+}
+
+.submit-btn button {
+  background-color: #016a70;
+  color: #f1f1e8;
+  width: 100%;
+  margin-top: 1em;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+.search-bar {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.bookshelf-wrapper {
+  padding: .5em;
+  border-radius: 10px;
+  border: 1px dashed #81b214;
+  margin-bottom: 10px;
+}
+.book-item {
+  border: 2px solid #81b214;
+  padding: 5px;
+  margin: 10px;
+  background-color: hsl(79, 100%, 82%);
+  border-radius: 10px;
+}
+
+.book-item h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+}
+
+.book-item p {
+  margin: 5px 0;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.buttons button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #f1f1e8;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.move-button {
+  background-color: #81b214;
+}
+
+.editModal,
+.deleteModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.editModal .container,
+.deleteModal .container {
+  background-color: #f1f1e8;
+  margin: 15% auto;
+  padding: 20px;
+  border: 3px dashed #81b214;
+  border-radius: 10px;
+  max-width: 400px;
+  position: relative;
+}
+
+.editModal .modal-title,
+.deleteModal .modal-title{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.deleteModal p{
+  text-align: center;
+  font-size: larger;
+
+}
+
+.close button,
+.close i {
+  margin-left: auto;
+  color: red;
+  font-size: 2em;
+}
+
+.editModal input[type="text"] {
+  font-weight: lighter;
+  font-size: larger;
+}
+
+footer {
+  background-color: #81b214;
+  padding: 20px;
+  border-radius: 50px 50px 0 0;
+  text-align: center;
+  color: #f7e987;
+  font-weight: lighter;
+  font-size: 1.2em;
+}
+
+footer a,
+footer i {
+  color: #f1f1e8;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  * {
+    max-width: 100%;
+    font-size: 95%;
+  }
+
+  body {
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: larger;
+  }
+
+  .header-title {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .header-title h3 {
+    margin-left: 0.1em;
+  }
+
+  .header-image,
+  .form-image {
+    display: none;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
